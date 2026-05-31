@@ -34,11 +34,11 @@ Note: Binary releases and dependency instructions will be published in the `rele
 
 ## Core Modules (Blades)
 
-- **Recon** [MVP]: Subdomain discovery, service detection, tech stack and version fingerprinting
-- **Vuln** [Design]: Context-aware vulnerability testing (XSS, SQLi, IDOR, RCE) with architectural logic
-- **Behavior** [Design]: Response pattern analysis, anomaly detection, and hidden endpoint discovery
-- **Fuzzing** [Design]: Intelligent input generation (targeted, not blind brute-force)
-- **Report** [Design]: Clean, structured output ready for HackerOne, Bugcrowd, or CVE submission
+- 🔍 **Recon** `[MVP]`: Subdomain discovery, service detection, tech stack and version fingerprinting
+- 🐛 **Vuln** `[Design]`: Context-aware vulnerability testing (XSS, SQLi, IDOR, RCE) with architectural logic
+- 📊 **Behavior** `[Design]`: Response pattern analysis, anomaly detection, and hidden endpoint discovery
+- 🌀 **Fuzzing** `[Design]`: Intelligent input generation (targeted, not blind brute-force)
+- 📄 **Report** `[Design]`: Clean, structured output ready for HackerOne, Bugcrowd, or CVE submission
 
 ---
 
@@ -60,5 +60,4 @@ swiss-army-knife/
 This project is released under the MIT License.
 For bug reports, feature requests, or security disclosures, please open an Issue or submit a Pull Request.
 
-> Security is not built with more tools, but with smarter architecture.
-```
+> "Security is not built with more tools, but with smarter architecture.
