@@ -15,6 +15,14 @@
 ## 🎯 Purpose
 A lightweight, modular security framework designed for bug bounty hunters and enterprise security teams. Swiss Army Knife enables rapid target reconnaissance, intelligent vulnerability assessment, behavioral analysis, smart fuzzing, and automated report generation—all within a unified, architecture-aware pipeline.
 
+### 🩺 Cyber-Preventative Philosophy
+Unlike traditional scanners, this tool operates on a **medical-grade security model**:
+- **Diagnosis:** Detects vulnerabilities with context-aware precision.
+- **Risk Scoring:** Assigns a real-time danger percentage (0–100%) to every finding.
+- **Prescription:** Generates actionable remediation steps & simulated patch impacts.
+- **Memory Consolidation:** Self-studies scan history every 24h to prevent knowledge drift.
+
+
 ---
 
 ## 🚀 Quick Start
