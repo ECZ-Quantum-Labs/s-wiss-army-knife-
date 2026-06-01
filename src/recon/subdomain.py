@@ -10,7 +10,6 @@ def discover_subdomains(target: str) -> list:
     MVP: Return mock subdomains for testing.
     TODO: Replace with real DNS/CT log queries.
     """
-    # Mock data for v0.1
     return [
         f"www.{target}",
         f"api.{target}",
@@ -18,7 +17,7 @@ def discover_subdomains(target: str) -> list:
         f"dev.{target}"
     ]
 
-def save_results(subdomains: list, output_path: str):
+def save_results(subdomains: list, output_path: str, target: str):
     """Save results to JSON file."""
     results = {
         "target": target,
@@ -30,8 +29,7 @@ def save_results(subdomains: list, output_path: str):
     print(f"[+] Saved {len(subdomains)} subdomains to {output_path}")
 
 if __name__ == "__main__":
-    # Quick test
     target = "example.com"
     subs = discover_subdomains(target)
-    save_results(subs, "test_subdomains.json")
+    save_results(subs, "test_subdomains.json", target)
 
