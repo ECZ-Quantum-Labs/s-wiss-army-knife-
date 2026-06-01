@@ -5,28 +5,27 @@ from pathlib import Path
 import argparse
 import json
 
+# Get absolute paths
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 
-# Find registry.py directly on disk (bypasses all import errors)
-REGISTRY_PATH_1 = SCRIPT_DIR / "core" / "registry.py"
-REGISTRY_PATH_2 = PROJECT_ROOT / "core" / "registry.py"
+# Direct path to registry.py
+REGISTRY_FILE = SCRIPT_DIR / "core" / "registry.py"
 
-if REGISTRY_PATH_1.exists():
-    REGISTRY_PATH = REGISTRY_PATH_1
-    BLADES_DIR = SCRIPT_DIR / "blades"
-elif REGISTRY_PATH_2.exists():
-    REGISTRY_PATH = REGISTRY_PATH_2
-    BLADES_DIR = PROJECT_ROOT / "blades"
-else:
-    print("[!] FATAL: registry.py not found in src/core/ or core/")
+if not REGISTRY_FILE.exists():
+    print(f"[!] FATAL: {REGISTRY_FILE} does not exist!")
+    print(f"[!] SCRIPT_DIR: {SCRIPT_DIR}")
+    print(f"[!] Files in src/core/: {list((SCRIPT_DIR / 'core').glob('*')) if (SCRIPT_DIR / 'core').exists() else 'N/A'}")
     sys.exit(1)
 
-# Load registry module directly from file path
-spec = importlib.util.spec_from_file_location("registry_module", REGISTRY_PATH)
+# Load registry directly from file
+spec = importlib.util.spec_from_file_location("registry", REGISTRY_FILE)
 registry_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(registry_module)
 ModuleRegistry = registry_module.ModuleRegistry
+
+# Set blades directory
+BLADES_DIR = SCRIPT_DIR / "blades"
 
 def main():
     parser = argparse.ArgumentParser(prog="swiss-army")
@@ -36,7 +35,7 @@ def main():
     
     args = parser.parse_args()
     
-    # Initialize registry and force correct blades path
+    # Initialize registry with correct blades path
     registry = ModuleRegistry()
     registry.blades_path = BLADES_DIR
     
@@ -48,7 +47,7 @@ def main():
         
     class_name = "".join(w.capitalize() for w in args.blade.split("_"))
     if not hasattr(mod, class_name):
-        print(f"[!] Class '{class_name}' not found in module.")
+        print(f"[!] Class '{class_name}' not found in module")
         sys.exit(1)
         
     blade_class = getattr(mod, class_name)
@@ -64,4 +63,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
