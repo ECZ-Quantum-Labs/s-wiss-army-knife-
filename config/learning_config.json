@@ -1,0 +1,14 @@
+{
+  "learning_enabled": true,
+  "memory_refresh_hours": 24,
+  "vector_db_path": "data/knowledge_lake",
+  "self_reflection": {
+    "enabled": true,
+    "min_confidence": 0.85
+  },
+  "remediation": {
+    "include_impact_analysis": true,
+    "suggest_simulated_patch": true
+  }
+}
+
