@@ -1,14 +1,19 @@
-
 #!/usr/bin/env python3
 """
 Swiss Army Knife - Modular Security Platform
 Entry point with dynamic module registry integration.
 Version: v0.2-alpha
 """
-import argparse
 import sys
-import json
 from pathlib import Path
+
+# Add project root to Python path
+PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+import argparse
+import json
 from core.registry import ModuleRegistry
 
 def main():
@@ -31,7 +36,6 @@ def main():
         print(f"[!] Error: Module '{args.blade}' not found or failed to load.")
         sys.exit(1)
         
-    # Dynamic instantiation using standard naming convention
     class_name = "".join(word.capitalize() for word in args.blade.split("_"))
     if not hasattr(mod, class_name):
         print(f"[!] Error: Class '{class_name}' not found in module '{args.blade}'.")
