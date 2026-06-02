@@ -4,7 +4,7 @@
     "provider": "chromadb",
     "collection_name": "security_knowledge",
     "persist_directory": "data/vector_store",
-    "similarity_threshold": 0.45,
+    "similarity_threshold": 0.25,
     "max_history_days": 90,
     "embedding_model": "all-MiniLM-L6-v2"
   },
