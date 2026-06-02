@@ -1,12 +1,16 @@
+
 import os
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List
 
 # Import vector utilities (graceful fallback if not installed)
 try:
-    from .vector_utils import VectorKnowledgeBase
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent.parent))  # Add src to path
+    from core.vector_utils import VectorKnowledgeBase
     VECTOR_ENABLED = True
 except ImportError:
     VECTOR_ENABLED = False
@@ -120,5 +124,4 @@ class MemoryConsolidator:
 if __name__ == "__main__":
     engine = MemoryConsolidator()
     engine.run()
-
 
