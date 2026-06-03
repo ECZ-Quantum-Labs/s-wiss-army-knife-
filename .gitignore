@@ -1,37 +1,22 @@
-# Build outputs
-/target/
-/dist/
-/build/
-*.exe
-*.dll
-*.so
-*.dylib
+# Generated & Sensitive Data
+reports/
+patches/
+data/
+memory/
+logs/
+*.json.bak
 
-# IDE & Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS files
+# Python & OS
+__pycache__/
+*.pyc
+*.pyo
 .DS_Store
-Thumbs.db
-
-# Logs & temporary files
-*.log
-*.tmp
-*.bak
-
-# Security sensitive files (NEVER commit)
 .env
-*.pem
-*.key
-*.p12
-secrets/
-config/local.yaml
+*.enc
+*.tar.gz
 
-# Test coverage
-coverage/
-*.out
+# Vector DB & Models
+chroma.sqlite3
+onnx_models/
+
 
