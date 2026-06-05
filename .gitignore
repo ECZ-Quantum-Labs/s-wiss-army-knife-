@@ -1,4 +1,28 @@
-# Generated & Sensitive Data
+# ==========================================
+# ECZ Labs - Swiss-Army-Knife Project
+# Proprietary Core Protection
+# ==========================================
+
+# 🚫 CORE PROPRIETARY FILES (DO NOT PUSH)
+src/core/aqrf/aqrf_core.py
+src/core/patch_factory/patch_factory_core.py
+src/core/aqrf/stress_test_aqrf.py
+src/core/robotics/ros2_generator.py
+src/core/patch_factory/sandbox_simulator.py
+
+# 🔐 Cryptographic Keys & Secrets
+*.pem
+*.key
+*.bin
+*.secret
+*.enc
+private_key*
+public_key*
+factory_secret*
+
+# 📁 Generated Artifacts (Too Large/Temporary)
+generated_patches/
+generated_robotics/
 reports/
 patches/
 data/
@@ -6,17 +30,42 @@ memory/
 logs/
 *.json.bak
 
-# Python & OS
+# 🐍 Python & OS
 __pycache__/
 *.pyc
 *.pyo
-.DS_Store
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 .env
-*.enc
+.venv
+venv/
+ENV/
+.DS_Store
 *.tar.gz
 
-# Vector DB & Models
+# 🗄️ Vector DB & Models
 chroma.sqlite3
 onnx_models/
+
+# 🧪 Test & Debug
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
 
 
